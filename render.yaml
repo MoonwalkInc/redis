@@ -1,8 +1,31 @@
 services:
 - type: pserv
-  name: redis
+  repo: https://github.com/MoonwalkInc/redis.git
+  name: redis-production
+  plan: starter
+  branch: main
   env: docker
   disk:
-    name: data
+    name: 'redis disk'
     mountPath: /var/lib/redis
-    sizeGB: 10
+    sizeGB: 1
+- type: pserv
+  repo: https://github.com/MoonwalkInc/redis.git
+  name: redis-demo
+  plan: starter
+  branch: release
+  env: docker
+  disk:
+    name: 'redis disk'
+    mountPath: /var/lib/redis
+    sizeGB: 1
+- type: pserv
+  repo: https://github.com/MoonwalkInc/redis.git
+  name: redis-dev
+  plan: starter
+  branch: develop
+  env: docker
+  disk:
+    name: 'redis disk'
+    mountPath: /var/lib/redis
+    sizeGB: 1
